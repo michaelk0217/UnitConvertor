@@ -94,10 +94,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEl-pH-NY0">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEl-pH-NY0">
                                         <rect key="frame" x="0.0" y="21" width="288" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="4aa-2R-tiu"/>
+                                            <constraint firstAttribute="width" constant="100" id="4i7-Bq-RRG"/>
                                         </constraints>
                                         <state key="normal" title="Back"/>
                                         <connections>
@@ -111,7 +112,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ce1-IR-Mbx">
                                         <rect key="frame" x="0.0" y="151" width="288" height="140"/>
@@ -145,6 +146,9 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="GEl-pH-NY0" firstAttribute="centerX" secondItem="9q8-5E-ZUq" secondAttribute="centerX" id="Vou-B3-RWd"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

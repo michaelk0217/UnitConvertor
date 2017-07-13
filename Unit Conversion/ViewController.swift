@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController1: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController1: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
    
     @IBOutlet weak var metricPickerView: UIPickerView!
@@ -18,8 +18,13 @@ class ViewController1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     @IBOutlet weak var initialValueTextField: UITextField!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initialValueTextField.delegate = self
+        initialValueTextField.becomeFirstResponder()
+        
         metricPickerView.dataSource = self
         metricPickerView.delegate = self
         metricPickerView.tag = 1
@@ -29,12 +34,19 @@ class ViewController1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         metricFinalValuePickerView.tag = 2
     }
     
-    var firstChoice:String = ""
-    var secondChoice:String = ""
+    var firstChoice:String = "Meter"
+    var secondChoice:String = "Foot"
+    var storage : [String] = ["Millimeter", "Centimeter", "Meter", "Kilometer"]
+    var storage2 : [String] = ["Inch" , "Foot" , "Yard" , "Mile"]
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
-    
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     func conversion() -> Double {
         var output: Double = 1
@@ -198,9 +210,13 @@ class ViewController1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     
     
-    
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        firstChoice = storage[row] as String
+//        secondChoice = storage2 [row] as String
+//    }
     
     @IBAction func convertMerticButoon(_ sender: Any) {
+        
         
         
         let alert = UIAlertController(title: "\(self.conversion())", message: "\(self.conversion2())", preferredStyle: UIAlertControllerStyle.alert)
@@ -252,6 +268,7 @@ class ViewController1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
         if pickerView.tag == 1 {
+            
             return MetricConversionList.instance.DifferentMetrics.metricName[row]
         }
         if pickerView.tag == 2 {
