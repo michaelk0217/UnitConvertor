@@ -17,17 +17,6 @@ class ViewController1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     @IBOutlet weak var initialValueTextField: UITextField!
     
-    
-    
-    @IBAction func convertMetricButtonPressed(_ sender: Any) {
-        var alert: UIAlertController
-        
-        
-        
-    }
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         metricPickerView.dataSource = self
@@ -38,6 +27,31 @@ class ViewController1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         metricFinalValuePickerView.delegate = self
         metricFinalValuePickerView.tag = 2
     }
+    
+    @IBAction func convertMerticButoon(_ sender: Any) {
+        
+        var alert: UIAlertController
+        var inputValue = 1
+        if MetricConversionList.instance.DifferentMetrics.metricName == ["Millimeter"] {
+            
+            if ImperialConversionList.instance.DifferentImperials.ImperialName == ["Inch"] {
+                
+                alert = UIAlertController(title: "Outcome", message: "Millimeter -> Inch", preferredStyle: UIAlertControllerStyle.alert)
+                
+                alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: nil))
+            
+                self.present(alert, animated:true)
+                
+            }
+            
+        }
+        
+
+    }
+    
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

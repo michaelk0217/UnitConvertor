@@ -141,7 +141,7 @@
                                         </constraints>
                                         <state key="normal" title="Convert!"/>
                                         <connections>
-                                            <action selector="convertMetricButtonPressed:" destination="WYb-by-sqU" eventType="touchUpInside" id="g89-xf-b6a"/>
+                                            <action selector="convertMerticButoon:" destination="WYb-by-sqU" eventType="touchUpInside" id="7El-x2-wPT"/>
                                         </connections>
                                     </button>
                                 </subviews>

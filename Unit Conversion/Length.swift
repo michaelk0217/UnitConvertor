@@ -13,13 +13,11 @@ class MetricConversion {
     
     var metricName:[String]
 
-    //var metricValue:Double
     
-    init(metricName: [String] /*, metricValue:Double*/) {
+    init(metricName: [String]) {
         
         self.metricName = metricName
         
-//        self.metricValue = metricValue
     }
 }
 
@@ -44,12 +42,12 @@ class MetricConversionList {
 class ImperialConversion {
     
     var ImperialName:[String]
-//    var ImperialValue:Double
+
     
-    init(ImperialName: [String]/*, ImperialValue:Double*/) {
+    init(ImperialName: [String]) {
         
         self.ImperialName = ImperialName
-        //self.ImperialValue = ImperialValue
+
     }
 }
 
@@ -59,14 +57,7 @@ class ImperialConversionList {
     
     public private(set) var DifferentImperials: ImperialConversion
     
-    //    public private(set) var currentImperialIndex: Int
-    //
-    //    public var currentImperial:ImperialConversion {
-    //        get{
-    //            return DifferentImperial[currentImperialIndex]
-    //        }
-    //    }
-    
+        
     
     private init() {
         
@@ -75,16 +66,6 @@ class ImperialConversionList {
     }
     
     
-//    private init(){
-//        DifferentImperials = [
-//            
-//            ImperialConversion(ImperialName: "Inch", ImperialValue: 1),
-//            ImperialConversion(ImperialName: "Foot", ImperialValue: 12),
-//            ImperialConversion(ImperialName: "yard", ImperialValue: 36),
-//            ImperialConversion(ImperialName: "Mile", ImperialValue: 63360),
-//            
-//        ]
-//    }
 }
 
 
