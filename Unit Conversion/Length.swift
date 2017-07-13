@@ -12,7 +12,7 @@ import Foundation
 class MetricConversion {
     
     var metricName:[String]
-
+    
     
     init(metricName: [String]) {
         

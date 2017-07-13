@@ -17,6 +17,7 @@ class ViewController1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     @IBOutlet weak var initialValueTextField: UITextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         metricPickerView.dataSource = self
@@ -28,24 +29,200 @@ class ViewController1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         metricFinalValuePickerView.tag = 2
     }
     
-    @IBAction func convertMerticButoon(_ sender: Any) {
+    var firstChoice:String = ""
+    var secondChoice:String = ""
+    
+    
+    
+    
+    
+    func conversion() -> Double {
+        var output: Double = 1
         
-        var alert: UIAlertController
-        var inputValue = 1
-        if MetricConversionList.instance.DifferentMetrics.metricName == ["Millimeter"] {
-            
-            if ImperialConversionList.instance.DifferentImperials.ImperialName == ["Inch"] {
+        let inputValue:Double? = Double(initialValueTextField.text!)
+        
+        if inputValue == nil {
+            output = 0
+        } else {
+            switch firstChoice {
                 
-                alert = UIAlertController(title: "Outcome", message: "Millimeter -> Inch", preferredStyle: UIAlertControllerStyle.alert)
                 
-                alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: nil))
-            
-                self.present(alert, animated:true)
+            case "Millimeter":
+                if secondChoice == "Inch" {
+                    output = inputValue! * 0.001 * 39.37008
+                    
+                } else if secondChoice == "Foot" {
+                    output = inputValue! * 0.001 * 3.28084
+                    
+                } else if secondChoice == "Yard" {
+                    output = inputValue! * 0.001 * 1.09361
+                    
+                }else if secondChoice == "Mile" {
+                    output = inputValue! * 0.001 * 0.000621371
+                    
+                }
                 
+            case "Centimeter" :
+                if secondChoice == "Inch" {
+                    output = inputValue! * 0.01 * 39.37008
+                    
+                } else if secondChoice == "Foot" {
+                    output = inputValue! * 0.01 * 3.23084
+                    
+                } else if secondChoice == "Yard" {
+                    output = inputValue! * 0.01 * 1.09361
+                    
+                }else if secondChoice == "Mile" {
+                    output = inputValue! * 0.01 * 0.000621371
+                    
+                }
+                
+            case "Meter" :
+                if secondChoice == "Inch" {
+                    output = inputValue! * 1 * 39.37008
+                    
+                } else if secondChoice == "Foot" {
+                    output = inputValue! * 1 * 3.23084
+                    
+                } else if secondChoice == "Yard" {
+                    output = inputValue! * 1 * 39.37008
+                    
+                }else if secondChoice == "Mile" {
+                    output = inputValue! * 1 * 0.000621371
+                }
+                
+            case "Kilometer" :
+                if secondChoice == "Inch" {
+                    output = inputValue! * 1000 * 39.37008
+                    
+                } else if secondChoice == "Foot" {
+                    output = inputValue! * 1000 * 3.28084
+                    
+                } else if secondChoice == "Yard" {
+                    output = inputValue! * 1000 * 1.09361
+                    
+                }else if secondChoice == "Mile" {
+                    output = inputValue! * 1000 * 0.000621371
+                }
+                
+            default:
+                
+                output = 0
             }
-            
         }
         
+        
+        
+        return output
+    }
+    
+    
+    func conversion2() -> String {
+        var alertMessage:String = ""
+        
+        let inputValue:Double? = Double(initialValueTextField.text!)
+        
+        if inputValue == nil {
+            alertMessage = "Put your initial value in the text box"
+        } else {
+            switch firstChoice {
+                
+                
+            case "Millimeter":
+                if secondChoice == "Inch" {
+                    
+                    alertMessage = "Millimeter -> Inch"
+                } else if secondChoice == "Foot" {
+                    
+                    alertMessage = "Millimeter -> Foot"
+                } else if secondChoice == "Yard" {
+                    
+                    alertMessage = "Millimeter -> Yard"
+                }else if secondChoice == "Mile" {
+                    
+                    alertMessage = "Millimeter -> Mile"
+                }
+                
+            case "Centimeter" :
+                if secondChoice == "Inch" {
+                    
+                    alertMessage = "Centimeter -> Inch"
+                } else if secondChoice == "Foot" {
+                    
+                    alertMessage = "Centimeter -> Foot"
+                } else if secondChoice == "Yard" {
+                    
+                    alertMessage = "Centimeter -> Yard"
+                }else if secondChoice == "Mile" {
+                    
+                    alertMessage = "Centimeter -> Mile"
+                }
+                
+            case "Meter" :
+                if secondChoice == "Inch" {
+                    
+                    alertMessage = "Meter -> Inch"
+                } else if secondChoice == "Foot" {
+                    
+                    alertMessage = "Meter -> Foot"
+                } else if secondChoice == "Yard" {
+                    
+                    alertMessage = "Meter -> Yard"
+                }else if secondChoice == "Mile" {
+                    
+                    alertMessage = "Meter -> Mile"
+                }
+                
+            case "Kilometer" :
+                if secondChoice == "Inch" {
+                    
+                    alertMessage = "Kilometer -> Inch"
+                } else if secondChoice == "Foot" {
+                    
+                    alertMessage = "Kilometer -> Foot"
+                } else if secondChoice == "Yard" {
+                    
+                    alertMessage = "Kilometer -> Yard"
+                }else if secondChoice == "Mile" {
+                    
+                    alertMessage = "Kilometer -> Mile"
+                }
+                
+            default:
+                alertMessage = "Error"
+            }
+        }
+        
+        return alertMessage
+    }
+    
+    
+    
+    
+    
+    @IBAction func convertMerticButoon(_ sender: Any) {
+        
+        
+        let alert = UIAlertController(title: "\(self.conversion())", message: "\(self.conversion2())", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: nil))
+        
+        self.present(alert, animated:true)
+        
+       
+        
+        
+        
+        
+//        var alert: UIAlertController
+//        
+//        
+//        alert = UIAlertController(title: "\(inputValue! * 0.001 * 39.37008)", message: "Millimeter -> Inch", preferredStyle: UIAlertControllerStyle.alert)
+//        
+//        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: nil))
+//        
+//        self.present(alert, animated:true)
+
 
     }
     
@@ -87,6 +264,48 @@ class ViewController1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         
     }
 
+    /*
+     var temp: String = ""
+     var secondtemp: String = ""
+     
+     
+     fun conversion()-> (the conversion){}
+     
+     
+     
+     switch temp {
+     
+     case mili :
+     //change from mili to given options
+        if (secondtemp == "inch"){}
+     else if (secondtemp == "foot"){//do somthing}
+     ....
+     
+     
+     case centi :
+     //change from centi to given options
+     
+     if (secondtemp == "inch"){}
+     else if (secondtemp == "foot"){//do somthing}
+     ....
+     case meter :
+        //do something
+     
+     default : 
+     //do something
+     
+     }
+     
+     return the conversion
+     
+     */
+    
+    /*
+     
+     @IBAction...{
+        alert.text (self.conversion ())
+     }
+     */
 
 }
 
