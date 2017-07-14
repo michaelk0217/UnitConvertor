@@ -33,11 +33,25 @@ class ViewController1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         metricFinalValuePickerView.delegate = self
         metricFinalValuePickerView.tag = 2
     }
-    
+    //var selectedValue = pickerViewContent[pickerView.selectedRowInComponent(0)]
     var firstChoice:String = "Meter"
     var secondChoice:String = "Foot"
-    var storage : [String] = ["Millimeter", "Centimeter", "Meter", "Kilometer"]
-    var storage2 : [String] = ["Inch" , "Foot" , "Yard" , "Mile"]
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView.tag == 1 {
+            firstChoice = MetricConversionList.instance.DifferentMetrics.metricName[row] as String
+        }
+        
+        if pickerView.tag == 2 {
+            secondChoice = ImperialConversionList.instance.DifferentImperials.ImperialName[row] as String
+        }
+        
+    }
+    
+    
+    
+//    var storage : [String] = ["Millimeter", "Centimeter", "Meter", "Kilometer"]
+//    var storage2 : [String] = ["Inch" , "Foot" , "Yard" , "Mile"]
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -210,10 +224,11 @@ class ViewController1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     
     
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        firstChoice = storage[row] as String
-//        secondChoice = storage2 [row] as String
-//    }
+
+    
+    
+    
+    
     
     @IBAction func convertMerticButoon(_ sender: Any) {
         
@@ -241,6 +256,7 @@ class ViewController1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
 
 
     }
+    
     
     
     
