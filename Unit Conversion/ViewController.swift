@@ -7,6 +7,13 @@
 //
 
 import UIKit
+ 
+// extension CGRect{
+//    init(_ x:CGFloat,_ y:CGFloat,_ width:CGFloat,_ height:CGFloat) {
+//        self.init(x:x,y:y,width:width,height:height)
+//    }
+//    
+// }
 
 class ViewController1: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
@@ -49,6 +56,35 @@ class ViewController1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     }
     
     
+    
+    
+    
+    //==============================
+//    func addDoneButtonOnKeyboard()
+//    {
+//        let doneToolbar: UIToolbar = UIToolbar(frame: CGRectMake(0, 0, 320, 50))
+//        doneToolbar.barStyle = UIBarStyle.default
+//        
+//        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+//        let done: UIBarButtonItem = UIBarButtonItem(title: "Aceptar", style: UIBarButtonItemStyle.done, target: self, action: #selector(ViewController1.doneButtonAction))
+//        
+//        var items = [UIBarButtonItem]()
+//        items.append(flexSpace)
+//        items.append(done)
+//        
+//        doneToolbar.items = items
+//        doneToolbar.sizeToFit()
+//        
+//        self.initialValueTextField.inputAccessoryView = doneToolbar
+//        
+//    }
+//    
+//    func doneButtonAction()
+//    {
+//        self.initialValueTextField.resignFirstResponder()
+//    }
+
+  //==============================
     
 //    var storage : [String] = ["Millimeter", "Centimeter", "Meter", "Kilometer"]
 //    var storage2 : [String] = ["Inch" , "Foot" , "Yard" , "Mile"]
